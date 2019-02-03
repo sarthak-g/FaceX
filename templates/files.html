@@ -1,3 +1,8 @@
 {% block content %}
 <h1>HELLO</h1>
+<a href="/">Home</a>
+<a href="{% url 'newfiles' record.pk %}">New File</a>
+{% for f in file %}
+<a href="{% url 'particular_prescription' f.pk %}">{{f.date}}<br></a>
+{% endfor %}
 {% endblock %}

@@ -17,6 +17,11 @@ class Records(models.Model):
     recorded_at = models.DateTimeField(default=datetime.now, blank=True)
 
     def __str__(self):
-        return self.first_name
+        return self.id
     class Meta:
         verbose_name_plural = "Records"              #so that in database table name is "Records" as by default django add s to model name so if we don't use verbose_name_plural then table name "Recordss" will be formed
+class Files(models.Model):
+    patient_no = models.CharField(max_length=10,null=True)
+    prescription_no = models.CharField(max_length=10,null=True)
+    pfile = models.TextField()
+    date = models.DateTimeField(default=datetime.now,blank=True)

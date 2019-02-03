@@ -1,0 +1,6 @@
+<h2>Record Details:</h2>
+<p>{{recDetail.id}}</p>
+<p>{{recDetail.first_name}} {{recDetail.last_name}}</p>
+<p>{{recDetail.dob}}</p>
+<p>{{rec.recorded_created_at}}</p>
+<a href="{% url 'update_record' recDetail.pk %}">Edit this Record</a>

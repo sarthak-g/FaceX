@@ -1,4 +1,7 @@
 from django.shortcuts import render, redirect
+from django.views.generic import CreateView,ListView,DetailView
+from django.views.generic.edit import UpdateView
+from records.models import Records
 import cv2
 import numpy as np
 import logging
@@ -15,7 +18,7 @@ from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
 import matplotlib.pyplot as plt
 import pickle
-
+from django.urls import reverse_lazy
 
 from django.conf import settings
 base_dir = settings.BASE_DIR
@@ -335,3 +338,20 @@ def detectImage(request):
     print (pred[0])
 
     return redirect('/records/details/'+str(pred[0]))
+class NewRecord(CreateView):
+    model = Records
+    template_name = 'record_create.html'
+    fields = '__all__'
+    success_url = reverse_lazy('home')
+class RecordUpdate(UpdateView):
+    model = Records
+    template_name = 'record_update.html'
+    fields = ['email','phone','marital_status','residence','postal_code','city','country','emergency_contact_first_name','emergency_contact_last_name','emergency_contact_relationship','emergency_contact_phone_no']
+    success_url = reverse_lazy('home')
+class RecordList(ListView):
+    model = Records
+    template_name = 'record_list.html'
+class RecordDetails(DetailView):
+    model = Records
+    template_name = 'record_detail.html'
+    context_object_name = 'recDetail'

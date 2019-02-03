@@ -1,0 +1,6 @@
+<h2>Update this Record</h2>
+<form method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Update">
+</form>

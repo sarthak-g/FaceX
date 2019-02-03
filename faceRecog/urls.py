@@ -16,15 +16,24 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from faceRecog import views as app_views
+from django.urls import path
 
 urlpatterns = [
-    url(r'^$', app_views.index),
+    url(r'^$', app_views.index,name='home'),
     url(r'^error_image$', app_views.errorImg),
     url(r'^create_dataset$', app_views.create_dataset),
     url(r'^trainer$', app_views.trainer),
     url(r'^eigen_train$', app_views.eigenTrain),
     url(r'^detect$', app_views.detect),
     url(r'^detect_image$', app_views.detectImage),
+
+    url(r'^record/$', app_views.NewRecord.as_view(),name='new_record'),
+
+    url(r'^listrecord/$', app_views.RecordList.as_view(),name='list_record'),
+    path('listrecord/detail/<int:pk>/', app_views.RecordDetails.as_view(),name='detail_record'),
+    path('listrecord/detail/<int:pk>/edit/', app_views.RecordUpdate.as_view(),name='update_record'),
+
     url(r'^admin/', admin.site.urls),
     url(r'^records/', include('records.urls')),
+
 ]

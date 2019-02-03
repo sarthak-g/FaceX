@@ -1,0 +1,8 @@
+<h2>Patient Registered</h2>
+<ul>
+  {% for r in object_list %}
+  <li>
+    <a href="{% url 'detail_record' r.pk %}">{{r.id}} {{r.first_name}} </a>
+  </li>
+  {% endfor %}
+</ul>

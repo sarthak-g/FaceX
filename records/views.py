@@ -19,6 +19,14 @@ def details(request, id):
         'record' : record
     }
     return render(request, 'details.html', context)
+def pdetails(request, id):
+    record = Records.objects.get(id=id)
+    file = Files.objects.filter(patient_no = id)
+    context = {
+        'record' : record,
+        'file':file,
+    }
+    return render(request, 'pdetails.html', context)
 def files(request, id):
     record = Records.objects.get(id=id)
     file = Files.objects.filter(patient_no = id)
@@ -32,7 +40,7 @@ def newfiles(request,id):
     if request.method=="POST":
         form = NewFileForm(request.POST)
         if form.is_valid():
-            new_req = Files(patient_no=request.POST['patient_id'],pfile=request.POST['patient_text'])
+            new_req = Files(patient_no=request.POST['patient_id'],date_of_visiting=request.POST['dov'],symptoms=request.POST['symptoms_p'],drugs=request.POST['drugs_p'],dosage=request.POST['dosage_p'],tests_to_be_done=request.POST['tests_to_be_done_p'],date_for_revisit=request.POST['date_for_revisit'])
             new_req.save()
             return render(request,'done.html',{'record':record})
     else:

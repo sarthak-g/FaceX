@@ -1,0 +1,7 @@
+{% block content %}
+<h1>HELLO</h1>
+<a href="{% url 'home' %}">Home</a>
+{% for f in file %}
+<a href="{% url 'particular_prescription' f.pk %}">{{f.date}}<br></a>
+{% endfor %}
+{% endblock %}

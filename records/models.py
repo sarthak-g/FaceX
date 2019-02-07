@@ -36,7 +36,10 @@ class Records(models.Model):
     class Meta:
         verbose_name_plural = "Records"              #so that in database table name is "Records" as by default django add s to model name so if we don't use verbose_name_plural then table name "Recordss" will be formed
 class Files(models.Model):
-    patient_no = models.CharField(max_length=10,null=True)
-    prescription_no = models.CharField(max_length=10,null=True)
-    pfile = models.TextField()
-    date = models.DateTimeField(default=datetime.now,blank=True)
+    patient_no = models.CharField(max_length=10,null=False)
+    date_of_visiting = models.CharField(max_length=11,null=False)
+    symptoms = models.TextField(max_length=300,null=False)
+    drugs = models.TextField(max_length=300,null=False)
+    dosage = models.TextField(max_length=300,null=False)
+    tests_to_be_done = models.TextField(max_length=300,null=False)
+    date_for_revisit = models.CharField(max_length=11,null=True)

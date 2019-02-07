@@ -1,11 +1,16 @@
 {% block content %}
 <h1>HELLO</h1>
 <a href="{% url 'files' record.pk %}">All prescriptions</a>
-<a href="/">Home</a>
+<a href="{% url 'home' %}">Home</a>
 <form method="POST">
   {% csrf_token %}
-  <h3>{{form.patient_id}}</h3>
-  <p>{{form.patient_text}}</p>
+  Patient No: {{form.patient_id}}<br>
+  Date of visiting: {{form.dov}}<br>
+  Symptoms: {{form.symptoms_p}}<br>
+  Drugs: {{form.drugs_p}}<br>
+  Dosage: {{form.dosage_p}}<br>
+  Test to be done: {{form.tests_to_be_done_p}}<br>
+  Date for revisit: {{form.date_for_revisit}}<br>
   <input type="submit">
 </form>
 {% endblock %}

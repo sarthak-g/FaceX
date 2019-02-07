@@ -1,8 +1,13 @@
 {% block content %}
 <h1>HELLO</h1>
-<a href="/">Home</a>
-<a href="{% url 'newfiles' record.pk %}">New File</a>
+<a href="{% url 'home' %}">Home</a>
+<a href="{% url 'newfiles' record.pk %}">New File</a><br>
 {% for f in file %}
-<a href="{% url 'particular_prescription' f.pk %}">{{f.date}}<br></a>
+<p>{{f.date_of_visiting}}</p>
+<p>{{f.symptoms}}</p>
+<p>{{f.drugs}}</p>
+<p>{{f.dosage}}</p>
+<p>{{f.tests_to_be_done}}</p>
+<p>{{f.date_for_revisit}}</p>
 {% endfor %}
 {% endblock %}

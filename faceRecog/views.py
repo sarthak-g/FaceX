@@ -19,12 +19,20 @@ from sklearn.metrics import confusion_matrix
 import matplotlib.pyplot as plt
 import pickle
 from django.urls import reverse_lazy
-
+from django.http import HttpResponse
 from django.conf import settings
 base_dir = settings.BASE_DIR
 # Create your views here.
+def intro(request):
+    return render(request,'intro.html')
 def index(request):
+    # if request.POST['action'] == 'Doctor':
+    #     return render(request, 'index.html')
+    # else:
+    #     return HttpResponse('Hello')
     return render(request, 'index.html')
+def indexp(request):
+    return render(request,'p_index.html')
 def errorImg(request):
     return render(request, 'error.html')
 
@@ -88,7 +96,7 @@ def create_dataset(request):
     # destroying all the windows
     cv2.destroyAllWindows()
 
-    return redirect('/')
+    return redirect('home')
 
 def trainer(request):
     '''
@@ -149,7 +157,7 @@ def trainer(request):
     recognizer.save(base_dir+'/ml/recognizer/trainingData.yml')
     cv2.destroyAllWindows()
 
-    return redirect('/')
+    return redirect('home')
 
 
 def detect(request):
@@ -190,6 +198,48 @@ def detect(request):
             cam.release()
             cv2.destroyAllWindows()
             return redirect('/records/details/'+str(userId))
+
+    cam.release()
+    cv2.destroyAllWindows()
+    return redirect('/')
+def pdetect(request):
+    faceDetect = cv2.CascadeClassifier(base_dir+'/ml/haarcascade_frontalface_default.xml')
+
+    cam = cv2.VideoCapture(0)
+    # creating recognizer
+    rec = cv2.face.LBPHFaceRecognizer_create();
+    # loading the training data
+    rec.read(base_dir+'/ml/recognizer/trainingData.yml')
+    getId = 0
+    font = cv2.FONT_HERSHEY_SIMPLEX
+    userId = 0
+    while(True):
+        ret, img = cam.read()
+        gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+        faces = faceDetect.detectMultiScale(gray, 1.3, 5)
+        for(x,y,w,h) in faces:
+            cv2.rectangle(img,(x,y),(x+w,y+h), (0,255,0), 2)
+
+            getId,conf = rec.predict(gray[y:y+h, x:x+w]) #This will predict the id of the face
+
+            #print conf;
+            if conf<35:
+                userId = getId
+                cv2.putText(img, "Detected",(x,y+h), font, 2, (0,255,0),2)
+            else:
+                cv2.putText(img, "Unknown",(x,y+h), font, 2, (0,0,255),2)
+
+            # Printing that number below the face
+            # @Prams cam image, id, location,font style, color, stroke
+
+        cv2.imshow("Face",img)
+        if(cv2.waitKey(1) == ord('q')):
+            break
+        elif(userId != 0):
+            cv2.waitKey(1000)
+            cam.release()
+            cv2.destroyAllWindows()
+            return redirect('/records/pdetails/'+str(userId))
 
     cam.release()
     cv2.destroyAllWindows()

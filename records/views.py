@@ -40,7 +40,7 @@ def newfiles(request,id):
     if request.method=="POST":
         form = NewFileForm(request.POST)
         if form.is_valid():
-            new_req = Files(patient_no=request.POST['patient_id'],date_of_visiting=request.POST['dov'],symptoms=request.POST['symptoms_p'],drugs=request.POST['drugs_p'],dosage=request.POST['dosage_p'],tests_to_be_done=request.POST['tests_to_be_done_p'],date_for_revisit=request.POST['date_for_revisit'])
+            new_req = Files(patient_no=request.POST['patient_id'],date_of_visiting=request.POST['date_of_visiting'],symptoms=request.POST['symptoms'],drugs=request.POST['drugs'],dosage=request.POST['dosage'],tests_to_be_done=request.POST['tests_to_be_done'],date_for_revisit=request.POST['date_for_revisit'])
             new_req.save()
             return render(request,'done.html',{'record':record})
     else:

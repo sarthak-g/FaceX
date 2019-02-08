@@ -24,7 +24,7 @@ from django.conf import settings
 base_dir = settings.BASE_DIR
 # Create your views here.
 def intro(request):
-    return render(request,'intro.html')
+    return render(request,'intro1.html')
 def index(request):
     # if request.POST['action'] == 'Doctor':
     #     return render(request, 'index.html')

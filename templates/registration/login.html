@@ -1,6 +1,45 @@
-<h2>This is login page: </h2>
-<form method="POST">
-  {% csrf_token %}
-  {{form.as_p}}
-  <button type="submit">Log In Me</button>
-</form>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<style>
+body{
+  background:url("{% static 'img/doc411.png' %}");
+  <!-- background-color:#231f20; -->
+  background-size:100%;
+  background-position:center;
+  bacground-attachment:fixed;
+
+}
+ #id_username{
+
+  border-radius:5px;
+  border-color:black;
+}
+#id_password{
+  border-radius:5px;
+  border-color:black;
+}
+#button1{
+  background-color:black;
+  opacity:0.5;
+}
+</style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="">
+
+  <title>Document</title>
+</head>
+<body>
+
+  <h2 style="color:black;font-size:50px;text-align:center;margin-top:100px;font-weight:bold;font-family:'Courier New',Courier,monospace;font-weight:bolder;">Enter your credentials: </h2>
+  <form method="POST" style="color:black;font-size:30px;text-align:center;height:50px;margin-top:50px;font-weight:bolder;font-family:'Courier New',Courier,monospace;">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button id="button1" type="submit" style="color:white;width:250px;height:50px;font-size:20px;border-radius:5px;font-weight:bold;font-family:'Courier New',Courier,monospace;">Log In Me</button>
+  </form>
+
+</body>
+</html>

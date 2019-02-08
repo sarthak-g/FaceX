@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <style>
+        *{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+         }
+         body
+         {
+           background-color: black;
+           background:url("{% static 'img/doc4.jpg' %}");
+            background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 1;
+        }
+        header{
+    /*background-color: white;*/
+    padding: 20px;
+    border-color:#24272e;
+    border-style: solid;
+        }
+        header h1{
+    color:#24272e;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+        }
+        /*.buttons{
+           margin-left: 530px;
+           margin-top: 300px;
+        }
+        .btn{
+            background-color: #24272e;
+            color:white;
+            border-color: black;
+            padding:0px 20px;
+        }*/
+        .scoreboard{
+    border:3px solid #24272e;
+    opacity: 0.7;
+    width: 600px;
+    height: 200px;
+    margin :220px auto;
+    text-align: center;
+    color: white;
+    font-size: 40px;
+    padding: 15px 20px;
+    font-family: 'Courier New', Courier, monospace;
+    position: relative;
+
+
+}
+.badge{
+    background-color: #24272e;
+    opacity: 1;
+    color: white;
+    font-size: 14px;
+    padding: 20px 50px;
+    font-family: 'Courier New', Courier, monospace;
+   }
+#user{
+    position: absolute;;
+    top: 70px;
+    left: -145px;
+}
+#computer{
+    position: absolute;
+    top: 70px;
+    right: -165px;
+}
+#button1{
+    background-color: #24272e;
+    border-color: #24272e;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    border-style: none;
+    font-weight: bold;
+    font-size: 30px;
+}
+#button2{
+    background-color: #24272e;
+    border-color: #24272e;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    border-style: none;
+    size: 40px;
+    font-weight: bold;
+    font-size: 30px;
+
+}
+#button1:hover{
+    cursor: pointer;
+}
+#button2:hover{
+    cursor: pointer;
+}
+.badge:hover{
+    cursor: pointer;
+    border-color: white;
+    border-width: 2px;
+}
+        </style>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <header><h1>FaceX</h1></header>
+        <!--<div class="buttons">
+            <button class="btn" id="button1"><h1>I'm a Patient</h1></button>
+            <button class="btn" id="button2"><h1>I'm a Doctor</h1></button>
+        </div>-->
+        <div class="scoreboard">
+               <div id="user" class="badge"> <a href="{% url 'patient_home' %}"><button type="button" id="button1">I'm a Patient</button></a></div>
+                <div id="computer" class="badge"><a href="/home/login/"><button type="button" id="button2">I'm a Doctor</button></a></div>
+                <span id="user_score">    </span> <span id="computer_score">    </span>
+            </div>
+
+    </body>
+</html>

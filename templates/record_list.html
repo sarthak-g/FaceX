@@ -1,8 +1,71 @@
-<h2>Patient Registered</h2>
-<ul>
-  {% for r in object_list %}
-  <li>
-    <a href="{% url 'detail_record' r.pk %}">{{r.id}} {{r.first_name}} </a>
-  </li>
-  {% endfor %}
-</ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+  <title>Document</title>
+</head>
+<body>
+  <style>
+
+ #id_patient_id{
+   width:100px;
+ }
+ #id_dov{
+   width:120px;
+ }
+ #id_date_for_revisit{
+    width:120px;
+ }
+
+  </style>
+
+
+  <h1 style="text-align:center;font-weight:bolder;font-family: 'Courier New', Courier, monospace;font-size:70px">All Registered Patients</h1><br>
+
+
+  <form method="POST">
+    {% csrf_token %}
+
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Patient No</th>
+        <th scope="col">Patient Name</th>
+    </thead>
+    <tbody>
+      {% for r in object_list %}
+      <tr>
+        <th scope="row"><a href="{% url 'detail_record' r.pk %}" style="font-size:20px;padding-left:20px;">{{r.id}}</a><br></th>
+        <td> {{r.first_name}} {{r.last_name}}</td>
+
+      </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+  <h1 style="text-align:center;font-weight:bolder;font-family: 'Courier New', Courier, monospace;font-size:70px">All Registered patients</h1><br>
+<!-- <h2 style="font-size:55px;">All Patient Registered</h2> -->
+
+  <!-- {% for r in object_list %}
+
+    <a href="{% url 'detail_record' r.pk %}" style="font-size:20px;padding-left:20px;">{{r.id}} {{r.first_name}} </a><br>
+
+  {% endfor %} -->

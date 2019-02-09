@@ -1,6 +1,171 @@
-<h2>Update this Record</h2>
-<form method="POST">
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<style>
+body{
+  background:url("{% static 'img/d.png' %}");
+  color:black;
+  /* background-color:#231f20; */
+  background-size:100%;
+  background-attachment:fixed;
+}
+#id_id{
+  margin-left:400px;
+  border-radius:5px;
+  border-color:black;
+  width:400px;
+}
+#id_first_name{
+  margin-left:280px;
+  border-radius:5px;
+  border-color:black;
+  width:400px;
+}
+#id_last_name{
+  margin-left:295px;
+  border-radius:5px;
+  border-color:black;
+  width:400px;
+}
+#id_email{
+  margin-left:355px;
+  border-radius:5px;
+  border-color:black;
+  width:400px;
+}
+#id_sex{
+  margin-left:385px;
+  border-radius:5px;
+  border-color:black;
+  width:400px;
+}
+#id_dob{
+  margin-left:385px;
+  border-radius:5px;
+  border-color:black;
+  width:400px;
+}
+#id_height_in_inches{
+  margin-left:190px;
+  border-radius:5px;
+  border-color:black;
+  width:400px;
+}
+#id_weight_in_kg{
+  margin-left:250px;
+  border-radius:5px;
+  border-color:black;
+  width:400px;
+}
+#id_phone{
+  margin-left:355px;
+  border-radius:5px;
+  border-color:black;
+  width:400px;
+}
+#id_marital_status{
+  margin-left:220px;
+  border-radius:5px;
+  border-color:black;
+  width:400px;
+}
+#id_residence{
+margin-left:295px;
+  border-radius:5px;
+  border-color:black;
+  width:400px;
+}
+#id_postal_code{
+  margin-left:265px;
+  border-radius:5px;
+  border-color:black;
+  width:400px;
+}
+#id_city{
+  margin-left:370px;
+  border-radius:5px;
+  border-color:black;
+  width:400px;
+}
+#id_country{
+  margin-left:326px;
+  border-radius:5px;
+  border-color:black;
+  width:400px;
+}
+#id_emergency_contact_first_name{
+  margin-left:10px;
+  border-radius:5px;
+  border-color:black;
+  width:400px;
+}
+#id_emergency_contact_last_name{
+  margin-left:25px;
+  border-radius:5px;
+  border-color:black;
+  width:400px;
+}
+#id_emergency_contact_relationship{
+  margin-left:-20px;
+  border-radius:5px;
+  border-color:black;
+  width:400px;
+}
+#id_emergency_contact_phone_no{
+  margin-left:40px;
+  border-radius:5px;
+  border-color:black;
+  width:400px;
+}
+#id_taking_any_medication_currently{
+  margin-left:0px;
+  border-radius:5px;
+  border-color:black;
+  width:365px;
+}
+#id_medication_if_yes{
+  margin-left:190px;
+  border-radius:10px;
+  border-color:black;
+  width:385px;
+}
+#id_record_created_at{
+  margin-left:4070px;
+  border-radius:10px;
+  border-color:black;
+  width:400px;
+}
+
+</style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="">
+
+  <title>Document</title>
+</head>
+<body>
+
+  <h2 style="color:black;font-size:50px;font-family:'Courier New',Courier,monospace;"">Update this Record</h2>
+  <form action="" method="POST" style="color:black;font-size:25px;height:50px;margin-left:10px;font-weight:bold;font-family:'Courier New',Courier,monospace;"">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Update" style="color:black;width:250px;height:50px;font-size:20px;border-radius:5px;font-weight:bold;font-family:'Courier New',Courier,monospace;margin-left:30px;">
+
+  </form>
+
+
+</body>
+</html>
+
+
+
+
+<!-- <form method="POST">
   {% csrf_token %}
   {{ form.as_p }}
   <input type="submit" value="Update">
-</form>
+</form> -->

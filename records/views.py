@@ -21,10 +21,8 @@ def details(request, id):
     return render(request, 'details.html', context)
 def pdetails(request, id):
     record = Records.objects.get(id=id)
-    file = Files.objects.filter(patient_no = id)
     context = {
-        'record' : record,
-        'file':file,
+        'record' : record
     }
     return render(request, 'pdetails.html', context)
 def files(request, id):
@@ -35,6 +33,14 @@ def files(request, id):
         'file':file,
     }
     return render(request, 'files.html', context)
+def pfiles(request, id):
+    record = Records.objects.get(id=id)
+    file = Files.objects.filter(patient_no = id)
+    context = {
+        'record' : record,
+        'file':file,
+    }
+    return render(request, 'pfiles.html', context)
 def newfiles(request,id):
     record = Records.objects.get(id=id)
     if request.method=="POST":

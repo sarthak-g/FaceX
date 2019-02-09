@@ -1,6 +1,69 @@
-<h2>Record Details:</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+  <title>Document</title>
+</head>
+<body>
+  <style>
+
+ #id_patient_id{
+   width:100px;
+ }
+ #id_dov{
+   width:120px;
+ }
+ #id_date_for_revisit{
+    width:120px;
+ }
+
+  </style>
+
+
+  <h1 style="text-align:center;font-weight:bolder;font-family: 'Courier New', Courier, monospace;font-size:70px">All Registered Patients</h1><br>
+
+
+  <form method="POST">
+    {% csrf_token %}
+
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Patient No</th>
+        <th scope="col">Patient Name</th>
+        <th scope="col">Date of birth</th>
+        <th scope="col">Record created at</th>
+    </thead>
+    <tbody>
+
+      <tr>
+        <th scope="row">{{recDetail.id}}</th>
+        <td> {{recDetail.first_name}} {{recDetail.last_name}}</td>
+        <td> {{recDetail.dob}}</td>
+        <td> {{rec.recorded_created_at}}</td>
+
+
+      </tr>
+
+    </tbody>
+  </table>
+  <a href="{% url 'update_record' recDetail.pk %}" style="margin-left:700px">Edit this Record</a>
+</body>
+</html>
+
+
+
+
+
+
+
+
+<!-- <h2>Record Details:</h2>
 <p>{{recDetail.id}}</p>
 <p>{{recDetail.first_name}} {{recDetail.last_name}}</p>
 <p>{{recDetail.dob}}</p>
-<p>{{rec.recorded_created_at}}</p>
-<a href="{% url 'update_record' recDetail.pk %}">Edit this Record</a>
+<p>{{rec.recorded_created_at}}</p> -->

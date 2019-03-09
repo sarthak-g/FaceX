@@ -5,7 +5,7 @@ Facial Recognition based doctor’s prescription remover and digitalizing hospit
 Quick guide
 
 To run this project:
-
+'''bash
 1 -> clone this project
-
+'''
 2 -> direct to file name "manage.py" in the command prompt and run command "python manage.py runserver"

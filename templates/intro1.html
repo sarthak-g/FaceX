@@ -1,3 +1,5 @@
+
+
 {% load static %}
 <!DOCTYPE html>
 <html>
@@ -43,6 +45,7 @@
         .scoreboard{
     border:3px solid #24272e;
     opacity: 0.7;
+    border-radius: 170px;
     width: 600px;
     height: 200px;
     margin :220px auto;
@@ -62,16 +65,32 @@
     font-size: 14px;
     padding: 20px 50px;
     font-family: 'Courier New', Courier, monospace;
+    border-radius: 70px;
+   }
+   .badge1{
+       width:500px;
+       padding: 20px 50px;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    margin-left: 30px;
+    border-radius: 70px;
    }
 #user{
-    position: absolute;;
-    top: 70px;
+    position: absolute;
+    top: 60px;
     left: -145px;
 }
 #computer{
     position: absolute;
-    top: 70px;
+    top: 60px;
     right: -165px;
+}
+#pharmacy{
+    position: absolute;
+    top: 150px;
+
+
+
 }
 #button1{
     background-color: #24272e;
@@ -93,12 +112,29 @@
     font-size: 30px;
 
 }
+#button3{
+    background-color: #24272e;
+    border-color: #24272e;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    border-style: none;
+    size: 40px;
+    font-weight: bold;
+    font-size: 30px;
+    padding: 25px 40px;
+    border-radius: 70px;
+
+}
 #button1:hover{
     cursor: pointer;
 }
 #button2:hover{
     cursor: pointer;
 }
+#button3:hover{
+    cursor: pointer;
+}
+
 .badge:hover{
     cursor: pointer;
     border-color: white;
@@ -115,10 +151,11 @@
             <button class="btn" id="button2"><h1>I'm a Doctor</h1></button>
         </div>-->
         <div class="scoreboard">
-               <div id="user" class="badge"> <a href="{% url 'patient_home' %}"><button type="button" id="button1">I'm a Patient</button></a></div>
-                <div id="computer" class="badge"><a href="/home/login/"><button type="button" id="button2">I'm a Doctor</button></a></div>
-                <span id="user_score">    </span> <span id="computer_score">    </span>
-            </div>
+            <div id="user" class="badge"> <a href="{% url 'patient_home' %}"><button type="button" id="button1">I'm a Patient</button></a></div>
+             <div id="computer" class="badge"><a href="/home/login/"><button type="button" id="button2">I'm a Doctor</button></a></div>
+             <div id="pharmacy" class="badge1"><a href="{% url 'pharmacy' %}"><button type="button" id="button3">Pharmacist</button></a></div>
+             <span id="user_score">    </span> <span id="computer_score">    </span>
+         </div>
 
     </body>
 </html>

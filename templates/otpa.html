@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  body{
+    background: #636363;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #a2ab58, #636363);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #a2ab58, #636363); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  }
+  input{
+    width:200px;
+    height:30px;
+    border-radius:10px;
+  }
+  button{
+    width:180px;
+    height:40px;
+    margin-left:630px;
+    border-radius:7px;
+    font-weight:bold;
+  }
+  a{
+    margin-top:40px;
+    color:inherit;
+    margin-left:30px;
+    font-weight:bold;
+
+  }
+  </style>
+</head>
+<body>
+
+  <h1 style="font-size:50px;color:white;margin-left:500px;">Enter OTPA: <input type="text" id="myText"> </h1>
+  <button onclick="myFunction()">Submit</button>
+  <script>
+    function myFunction() {
+      var x = document.getElementById("myText").value;
+      var y = {{a}}
+      if (x==y){
+        var a = document.createElement('a');
+var linkText = document.createTextNode("Click Here to access records");
+a.appendChild(linkText);
+a.title = "Records";
+a.href = "/records/pharma/otpa/1/";
+document.body.appendChild(a);
+
+      }
+      else{
+        alert("Wrong OTPA");
+      }
+
+    }
+  </script>
+
+</body>
+</html>

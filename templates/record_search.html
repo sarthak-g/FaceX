@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+  #t1{
+    width:115px;
+    padding-left:20px;
+  }
+  #t2{
+    width:150px;
+    padding-left:30px;
+
+  }
+  #t3{
+    width:100px;
+    padding-left:30px;
+  }
+  #t4{
+    width:70px;
+    padding-left:30px;
+  }
+  #t5{
+    width:70px;
+    padding-left:30px;
+  }
+  #t6{
+    width:100px;
+    padding-left:30px;
+  }
+  #a1{
+    width:150px;
+    font-size:20px;
+  }
+  #a2{
+    width:150px;
+    font-size:20px;
+
+  }
+  #a3{
+    width:100px;
+    font-size:20px;
+  }
+  #a4{
+    width:70px;
+    font-size:20px;
+  }
+  #a5{
+    width:150px;
+    font-size:20px;
+  }
+  #a6{
+    width:100px;
+    font-size:20px;
+  }
+  </style>
+  <h1 style="font-weight:bolder;font-family: 'Courier New', Courier, monospace;font-size:60px">Secured and Verified prescription of this patient.</h1><br>
+  <!-- <h1>All Prescriptions</h1> -->
+
+  <a href="/"> <button style="margin-left:10px;border-radius:6px;font-size:30px">Home</button></a>
+
+<br><br>
+  <!-- <a href="{% url 'home' %}">Home</a>
+  <a href="{% url 'newfiles' record.pk %}">New File</a><br> -->
+
+  <table class="table table-striped">
+  <thead>
+    <tr>
+
+      <th scope="col" id="a1">Date of visiting</th>
+      <th scope="col" id="a2">Symptoms</th>
+      <th scope="col" id="a3">Drugs</th>
+      <th scope="col" id="a4">Dosage</th>
+      <th scope="col" id="a5">Test to be done</th>
+      <th scope="col" id="a6">Date for revisit</th>
+    </tr>
+  </thead>
+  <tbody>
+      {% for f in file %}
+    <tr>
+
+      <td id="t1">{{f.date_of_visiting}}</td>
+      <td id="t2">{{f.symptoms}}</td>
+      <td id="t3">{{f.drugs}}</td>
+      <td id="t4">{{f.dosage}}</td>
+      <td id="t5">{{f.tests_to_be_done}}</td>
+      <td id="t6">{{f.date_for_revisit}}</td>
+    </tr>
+{% endfor %}
+  </tbody>
+</table>
+
+
+
+
+  <!-- <p>{{f.date_of_visiting}}</p>
+  <p>{{f.symptoms}}</p>
+  <p>{{f.drugs}}</p>
+  <p>{{f.dosage}}</p>
+  <p>{{f.tests_to_be_done}}</p>
+  <p>{{f.date_for_revisit}}</p> -->
+
+
+</body>
+</html>

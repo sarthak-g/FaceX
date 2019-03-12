@@ -5,14 +5,45 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .forms import NewFileForm
 from django.views.generic.detail import DetailView
+from random import randint
 # Create your views here.
+val = 0
 def index(request):
     records = Records.objects.all()[:10]    #getting the first 10 records
     context = {
         'records': records
     }
     return render(request, 'records.html', context)
-
+def pharmacy(request):
+    number = Records.objects.all()
+    val = number
+    context = {
+    'number' : number
+    }
+    return render(request,'pharma.html',context)
+def otpa(request):
+    range_start = 10**(3)
+    range_end = (10**4)-1
+    a = randint(range_start, range_end)
+    print(a)
+    context = {
+    'a':a
+    }
+    return render(request,'otpa.html',context)
+def otparecord(request,id):
+    # record_s = Records.objects.all()
+    # file = Files.objects.all()
+    # context = {
+    # 'record_s':record_s,
+    # 'file':file
+    # }
+    record = Records.objects.get(id=id)
+    file = Files.objects.filter(patient_no = id)
+    context = {
+        'record' : record,
+        'file':file,
+    }
+    return render(request,'record_search.html',context)
 def details(request, id):
     record = Records.objects.get(id=id)
     context = {

@@ -13,6 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+from django.urls import path
 from django.conf.urls import url, include
 from django.contrib import admin
 from faceRecog import views as app_views
@@ -21,8 +22,12 @@ from django.urls import path
 urlpatterns = [
     url(r'^$', app_views.intro,name='front'),
     url(r'^home/$', app_views.index,name='home'),
+    url(r'^home/fingerprint/$', app_views.fingerprint,name='fingerprint'),
+
     url(r'^home/patient/$', app_views.indexp,name='patient_home'),
+    path('home/pharmacist/', include('records.urls')),
     url(r'^home/', include('django.contrib.auth.urls')),
+
 
     url(r'^error_image$', app_views.errorImg),
     url(r'^create_dataset$', app_views.create_dataset),

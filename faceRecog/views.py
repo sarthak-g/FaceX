@@ -31,6 +31,9 @@ def index(request):
     # else:
     #     return HttpResponse('Hello')
     return render(request, 'index.html')
+    
+def fingerprint(request):
+    return render(request, 'fingerprint.html')
 def indexp(request):
     return render(request,'p_index.html')
 def errorImg(request):

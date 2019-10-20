@@ -26,7 +26,7 @@
 
   <h1 style="text-align:center;font-weight:bolder;font-family: 'Courier New', Courier, monospace;font-size:70px">New Prescription</h1><br>
   <a href="{% url 'files' record.pk %}"> <button style="margin-left:10px;border-radius:6px;">All prescriptions</button></a>
-  <a href="{% url 'home' %}"> <button style="margin-left:10px;border-radius:6px;width:80px">Home</button></a>
+  <a href="{% url 'front' %}"> <button style="margin-left:10px;border-radius:6px;width:80px">Home</button></a>
 
 
 
@@ -38,7 +38,7 @@
     <table class="table table-striped">
     <thead>
       <tr>
-        <th scope="col">Patient No</th>
+
         <th scope="col">Date of visiting</th>
         <th scope="col">Symptoms</th>
         <th scope="col">Drugs</th>
@@ -49,7 +49,7 @@
     </thead>
     <tbody>
       <tr>
-        <th scope="row">{{form.patient_id}}</th>
+        
         <td>{{form.dov}}</td>
         <td>{{form.symptoms_p}}</td>
         <td>{{form.drugs_p}}</td>

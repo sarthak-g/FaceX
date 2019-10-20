@@ -145,14 +145,14 @@
         <meta charset="utf-8">
     </head>
     <body>
-        <header><h1>FaceX</h1></header>
+        <header><h1>MedEazy</h1></header>
         <!--<div class="buttons">
             <button class="btn" id="button1"><h1>I'm a Patient</h1></button>
             <button class="btn" id="button2"><h1>I'm a Doctor</h1></button>
         </div>-->
         <div class="scoreboard">
-            <div id="user" class="badge"> <a href="{% url 'patient_home' %}"><button type="button" id="button1">I'm a Patient</button></a></div>
-             <div id="computer" class="badge"><a href="/home/login/"><button type="button" id="button2">I'm a Doctor</button></a></div>
+            <div id="user" class="badge"> <a href="{% url 'patient' %}"><button type="button" id="button1">I'm a Patient</button></a></div>
+             <div id="computer" class="badge"><a href="/doctor/login/"><button type="button" id="button2">I'm a Doctor</button></a></div>
              <div id="pharmacy" class="badge1"><a href="{% url 'pharmacy' %}"><button type="button" id="button3">Pharmacist</button></a></div>
              <span id="user_score">    </span> <span id="computer_score">    </span>
          </div>

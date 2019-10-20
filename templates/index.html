@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% load static %}
-{% block title %}Image Recognition{% endblock %}
+{% block title %}MedEazy{% endblock %}
 {% block content %}
 <div id="particles-js"></div>
 <div class="container" >
@@ -10,14 +10,10 @@
 box-shadow:         2px 2px 15px 0px rgba(0, 3, 0, 0.7);">
     <div class="col-lg-12">
 
-      <a href="{% url 'logout' %}" class="text-right"><h5 ><i class="fa fa-user-circle" aria-hidden="true"></i> logout</a><br>
-        <a href="{% url 'fingerprint' %}" class="text-right" style="float:left;font-size:20px;"><h5 > <i class="fas fa-fingerprint"></i> Verify through fingerprint</a>
-      <a href="{% url 'new_record' %}" class="text-right" style="float:right;"><h5 ><i class="fa fa-user-circle" aria-hidden="true"></i> New Record</a><br>
-
-      <a href="{% url 'list_record' %}" class="text-right" style="float:right;"><h5 ><i class="fa fa-user-circle" aria-hidden="true"></i> All Record</a>
 
 
-      <h1 class="text-center section-title" style="margin-bottom:2em;margin-left:70px;">FaceX</h1>
+
+      <h1 class="text-center section-title" style="margin-bottom:2em;margin-left:70px;">MedEazy</h1>
     </div>
     <style>
       h4{
@@ -54,62 +50,36 @@ box-shadow:         2px 2px 15px 0px rgba(0, 3, 0, 0.7);">
         	-moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
           margin-bottom:1em;
         } */
+        input {
+          background-color: grey;
+        }
+        label{
+          font-size:40px;
+        }
+        #id_aadhar_no{
+          height:35px;
+          margin-left:10px;
+          width:400px;
+        }
     </style>
 
-    <div class="row">
+<!-- for under faceX -->
 
-      <div class="col-md-12">
-        <!-- <h3 class="text-center">With OpenCV, LBPH</h3> -->
-        <div class="col-md-4">
-          <a href="/detect"><img src="{% static 'img/webcam.png' %}" class="img-responsive" /></a>
-          <h4 class="text-center">Detect By Webcam</h4>
-        </div>
-        <div class="col-md-4">
-          <a href="/trainer"><img src="{% static 'img/trainer.png' %}" class="img-responsive" /></a>
-          <h4 class="text-center">Train Classifier</h4>
-        </div>
-        <div class="col-md-4">
-          <button type="button" style="background:transparent;border:none" data-toggle="modal" data-target="#myModal">
-            <img src="{% static 'img/add.png' %}" class="img-responsive" />
-          </button>
-          <h4 class="text-center">Create New Dataset</h4>
-        </div>
-      </div>
-    </div>
+  {% if form %}
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p  }}
+    <input type="submit" style="margin-left:10px;border-radius:6px;width:160px;font-size:30px">
+
+
+
+  </form>
+  {% endif %}
+
 </div><!-- Container -->
 
 
 
 
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Input unique id and wait for webcam</h4>
-      </div>
-      <div class="modal-body">
-        <ul>
-          <li>For higher accuracy, make sure to stay in room with good lightning.</li>
-          <li>Please remove any type of accesories from face.</li>
-          <li>Make sure your face in clearly visible in camera.</li>
-          <li>Make sure your hair is not blocking the face.</li>
-          <li>Make sure no other faces are within the cam frame.
-        </ul>
-        <hr/>
-        <form action="/create_dataset" method="POST">
-          {% csrf_token %}
-          <div class="form-group">
-            <label for="inputId">Enter Unique ID*</label>
-            <input type="text" class="form-control" name="userId" id="inputId" placeholder="Enter Id">
-          </div>
-          <button type="submit" class="btn btn-warning">Submit</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
 
 {% endblock %}

@@ -27,8 +27,9 @@ background: linear-gradient(to right, #a2ab58, #636363); /* W3C, IE 10+/ Edge, F
   a{
     margin-top:40px;
     color:inherit;
-    margin-left:30px;
+    margin-left:500px;
     font-weight:bold;
+    font-size:30px;
 
   }
   </style>
@@ -37,15 +38,17 @@ background: linear-gradient(to right, #a2ab58, #636363); /* W3C, IE 10+/ Edge, F
 
   <h1 style="font-size:50px;color:white;margin-left:500px;">Enter OTPA: <input type="text" id="myText"> </h1>
   <button onclick="myFunction()">Submit</button>
+  <h1 style="font-size:50px;color:white;margin-left:500px;" id="myText2"> </h1>
   <script>
     function myFunction() {
       var x = document.getElementById("myText").value;
       var y = {{a}}
       if (x==y){
+        document.getElementById("myText2").innerHTML = "Successfully Authenticated";
         var a = document.createElement('a');
-var linkText = document.createTextNode("Click Here to access records");
+var linkText = document.createTextNode("Continue");
 a.appendChild(linkText);
-a.href = "/pharma/otpa/790083600985/";
+a.href = "{% url 'files' a_no %}";
 document.body.appendChild(a);
 
       }
